@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
               ),
               MaterialButton(
                 padding: const EdgeInsets.all(20),
-                color: Colors.blue,
+                color: const Color.fromRGBO(255, 143, 0, 1),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 child: Align(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                         )
                       : const Text(
                           'Get Your Following Now',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                 ),
                 onPressed: () {

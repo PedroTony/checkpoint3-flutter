@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:github_api_demo/models/gists.dart';
 import 'package:github_api_demo/models/repos.dart';
 import 'package:http/http.dart' as http;
 
@@ -86,6 +87,27 @@ class GitHubApi {
     if (response.statusCode == 200) {
       var jsonList = jsonDecode(response.body);
       var users = jsonList.map<Repos>((json) => Repos.fromJson(json)).toList();
+
+      return users ?? [];
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<Gists>> getGists(String userName) async {
+    final url = '${baseUrl}users/$userName/gists';
+    var response = await http.get(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      var jsonList = jsonDecode(response.body);
+      var users = jsonList.map<Gists>((json) => Gists.fromJson(json)).toList();
 
       return users ?? [];
     } else {

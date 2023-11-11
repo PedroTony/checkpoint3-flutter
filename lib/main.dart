@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(primary: Colors.amber.shade800),
       ),
       home: const HomePage(),
     );
